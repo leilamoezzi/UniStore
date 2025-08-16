@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>فروشگاه پاستلی | جزئیات محصول</title>
+    <link rel="icon" type="image/png" href="/images/logoside.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face {
+            font-family: 'DastNevis';
+            src: url('fonts/danstevis.otf') format('opentype');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --cream: #F8EFE6;
+            --peach: #F4C7B8;
+            --rose: #EFA8A4;
+            --sage: #CFE3D3;
+            --lav: #D7C6F5;
+            --ink: #6B3F2C;
+        }
+
+        html, body {
+            background: linear-gradient(160deg,var(--cream),#fff);
+            color: var(--ink);
+            font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+            font-weight: 300;
+        }
+
+        body, [lang="fa"], [dir="rtl"] {
+            font-family: 'DastNevis',ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial !important;
+            font-weight: 300;
+        }
+
+        h1, h2, h3, h4, .font-bold, .font-extrabold {
+            font-weight: 400;
+        }
+
+        .soft-card {
+            box-shadow: 0 10px 30px rgba(0,0,0,.06);
+            transition: all .3s ease;
+        }
+
+            .soft-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 14px 35px rgba(0,0,0,.12);
+                background: rgba(255,255,255,0.85);
+            }
+
+        .glass {
+            background: rgba(255,255,255,.72);
+            backdrop-filter: blur(10px);
+        }
+
+        .pastel-gradient {
+            background: linear-gradient(135deg,var(--peach),var(--lav));
+        }
+
+        .peach-btn {
+            background: var(--peach);
+            color: #fff;
+        }
+
+            .peach-btn:hover {
+                background: #efb7a6;
+            }
+
+        .rose-btn {
+            background: var(--rose);
+        }
+
+            .rose-btn:hover {
+                background: #e79792;
+            }
+
+        .badge {
+            background: #0000000d;
+            padding: .25rem .5rem;
+            border-radius: .5rem;
+        }
+
+        img {
+            transition: transform .4s ease, box-shadow .4s ease;
+        }
+
+            img:hover {
+                transform: scale(1.05);
+                box-shadow: 0 10px 25px rgba(0,0,0,.15);
+            }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- نوار اعلان -->
+    <div class="w-full text-center text-sm text-white py-2 pastel-gradient">ارسال رایگان برای سفارش‌های بالای 500 هزار تومان ✨</div>
+
+    <!-- هدر -->
+    <header class="sticky top-0 z-40 glass border-b border-white/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="images/logoside.png">
+                <span class="font-extrabold text-xl">فروشگاه پاستلی</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-6 text-sm">
+                <a href="index.html">خانه</a>
+                <a href="categories.html">دسته‌بندی‌ها</a>
+                <a href="about.html">درباره ما</a>
+                <a href="contact.html">تماس با ما</a>
+                <a href="account.html">ثبت‌نام/ورود</a>
+                <a href="dashboard.html">پنل کاربری</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <a href="categories.html#cart" class="rose-btn px-4 py-2 rounded-lg soft-card text-sm">سبد</a>
+                <button id="menuBtn" class="md:hidden bg-black/70 text-white px-3 py-2 rounded-lg">منو</button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="md:hidden hidden border-t border-white/60">
+            <div class="px-4 py-3 flex flex-col gap-3 glass">
+                <a href="index.html">خانه</a>
+                <a href="categories.html">دسته‌بندی‌ها</a>
+                <a href="about.html">درباره ما</a>
+                <a href="contact.html">تماس با ما</a>
+                <a href="account.html">پنل ادمین</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- بدنه -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid lg:grid-cols-2 gap-8">
+            <!-- گالری -->
+            <section class="glass soft-card rounded-2xl p-5">
+                <div class="aspect-[4/3] rounded-xl pastel-gradient soft-card flex items-center justify-center overflow-hidden">
+                    <img id="mainImg" src="images/4.png" class="img-preview">
+                </div>
+                <div class="mt-4 grid grid-cols-3 gap-3">
+                    <button class="thumb bg-white rounded-xl p-3 soft-card" data-id="1">
+                        <img src="images/4.png">
+                    </button>
+                    <button class="thumb bg-white rounded-xl p-3 soft-card" data-id="2">
+                        <img src="images/5.png">
+                    </button>
+                    <button class="thumb bg-white rounded-xl p-3 soft-card" data-id="3">
+                        <img src="images/6.jpg">
+                    </button>
+                </div>
+            </section>
+
+            <!-- اطلاعات محصول -->
+            <section>
+                <div class="glass soft-card rounded-2xl p-6">
+                    <div class="flex items-center justify-between gap-4">
+                        <h1 id="pTitle" class="text-2xl font-extrabold">لیوان سرامیکی پاستلی</h1>
+                        <span class="badge">ارسال رایگان</span>
+                    </div>
+                    <div class="mt-2 text-black/70">کد: <span id="pSKU">PS-001</span></div>
+                    <div class="mt-4 text-2xl font-extrabold" id="pPrice">180,000 تومان</div>
+
+                    <p class="mt-5 leading-8 text-black/80" id="pDesc">
+                        لیوان لطیف و جمع‌وجور با رنگ پاستلی ملایم.
+                    </p>
+
+                    <div class="mt-6 flex items-center gap-3">
+                        <div class="flex items-center bg-white rounded-xl soft-card">
+                            <button id="decQty" class="px-3 py-2">-</button>
+                            <input id="qty" type="number" value="1" min="1" class="w-14 text-center outline-none py-2 bg-transparent" />
+                            <button id="incQty" class="px-3 py-2">+</button>
+                        </div>
+                        <button id="addBtn" class="peach-btn rounded-xl px-5 py-3">افزودن به سبد</button>
+                        <button id="favBtn" class="bg-white rounded-xl px-4 py-3 soft-card">❤ علاقه‌مندی</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- فوتر -->
+    <footer class="mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 rounded-t-3xl pastel-gradient text-white">
+            <div class="font-extrabold text-lg">فروشگاه پاستلی</div>
+        </div>
+    </footer>
+
+    <script>
+        // منوی موبایل
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (menuBtn) menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // داده‌های محصولات
+        const products = {
+            '1': { title: 'لیوان سرامیکی پاستلی', price: 180000, sku: 'PS-001', desc: 'لیوان لطیف و جمع‌وجور با رنگ پاستلی ملایم.', img: 'images/4.png' },
+            '2': { title: 'دفتر نقطه‌ای پاستلی', price: 95000, sku: 'PS-002', desc: 'دفتر بولت ژورنال با کاغذ نرم و دلنشین.', img: 'images/5.png' },
+            '3': { title: 'تیشرت کرم مینیمال', price: 320000, sku: 'PS-003', desc: 'پارچه سبک و راحت با فیت ریلکس.', img: 'images/6.jpg' }
+        };
+
+        function priceFmt(n) { return n.toLocaleString('fa-IR') + ' تومان'; }
+
+        const pTitle = document.getElementById('pTitle');
+        const pPrice = document.getElementById('pPrice');
+        const pSKU = document.getElementById('pSKU');
+        const pDesc = document.getElementById('pDesc');
+        const mainImg = document.getElementById('mainImg');
+
+        function updateProduct(prod) {
+            pTitle.textContent = prod.title;
+            pPrice.textContent = priceFmt(prod.price);
+            pSKU.textContent = prod.sku;
+            pDesc.textContent = prod.desc;
+            mainImg.src = prod.img;
+        }
+
+        // محصول اولیه
+        const params = new URLSearchParams(location.search);
+        const id = params.get('id') || '1';
+        updateProduct(products[id]);
+
+        // کلیک روی بندانگشتی‌ها
+        document.querySelectorAll('.thumb').forEach(b => {
+            b.addEventListener('click', () => {
+                const pid = b.dataset.id;
+                updateProduct(products[pid]);
+            });
+        });
+
+        // تعداد
+        const qty = document.getElementById('qty');
+        document.getElementById('incQty').addEventListener('click', () => qty.value = +qty.value + 1);
+        document.getElementById('decQty').addEventListener('click', () => qty.value = Math.max(1, +qty.value - 1));
+
+        // افزودن به سبد (نمایشی)
+        document.getElementById('addBtn').addEventListener('click', () => {
+            alert('محصول به صورت نمایشی به سبد اضافه شد.');
+        });
+    </script>
+</body>
+</html>

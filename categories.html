@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>فروشگاه پاستلی | دسته‌بندی‌ها</title>
+  <link rel="icon" type="image/png" href="/images/logoside.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    @font-face {
+      font-family: 'DastNevis';
+      src: url('fonts/danstevis.otf') format('opentype');
+      font-weight: 300; font-style: normal; font-display: swap;
+    }
+    :root{
+      --cream:#F8EFE6; --peach:#F4C7B8; --rose:#EFA8A4; --sage:#CFE3D3; --lav:#D7C6F5; --ink:#6B3F2C;
+    }
+    html,body{ background: linear-gradient(160deg,var(--cream),#fff); color:var(--ink); font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial; font-weight:300;}
+    body,[lang="fa"],[dir="rtl"]{ font-family:'DastNevis',ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial!important; font-weight:300;}
+    h1,h2,h3,h4,.font-bold,.font-extrabold{ font-weight:400;}
+    .soft-card{ box-shadow:0 10px 30px rgba(0,0,0,.06);}
+    .glass{ background:rgba(255,255,255,.72); backdrop-filter:blur(10px);}
+    .pastel-gradient{ background:linear-gradient(135deg,var(--peach),var(--lav));}
+    .peach-btn{ background:var(--peach); color:#fff;} .peach-btn:hover{ background:#efb7a6;}
+    .rose-btn{ background:var(--rose); color:#fff;} .rose-btn:hover{ background:#e79792;}
+    .link-underline{ position:relative;}
+    .link-underline::after{ content:""; position:absolute; inset-inline:0; bottom:-3px; height:2px; background:#B5651D; transform:scaleX(0); transform-origin:right; transition:.25s;}
+    .link-underline:hover::after{ transform:scaleX(1); transform-origin:left;}
+    .truncate-2{ display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;}
+    .badge{ background:#0000000d; padding:.25rem .5rem; border-radius:.5rem;}
+
+    /* --- افکت ورود المان‌ها --- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards;
+}
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- کارت نرم با هاور --- */
+.soft-card {
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+  transition: all 0.3s ease;
+}
+.soft-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* --- افکت هاور لینک‌ها --- */
+.link-underline {
+  position: relative;
+  transition: color 0.3s ease;
+}
+.link-underline:hover {
+  color: var(--peach);
+}
+
+/* --- افکت درخشش دکمه‌ها (peach و rose) --- */
+.peach-btn, .subscribe-btn {
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.peach-btn:hover, .subscribe-btn:hover {
+  transform: translateY(-2px);
+}
+.peach-btn::before, .subscribe-btn::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: rgba(255,255,255,0.4);
+  transform: skewX(-20deg);
+}
+.peach-btn:hover::before, .subscribe-btn:hover::before {
+  animation: shine 0.7s ease;
+}
+@keyframes shine {
+  to { left: 150%; }
+}
+
+/* --- افکت زوم روی تصاویر محصول --- */
+.product a {
+  display: block;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+.product:hover a {
+  transform: scale(1.05);
+}
+
+  </style>
+</head>
+<body class="min-h-screen">
+  <div class="w-full text-center text-sm text-white py-2 pastel-gradient">ارسال رایگان برای سفارش‌های بالای 500 هزار تومان ✨</div>
+  <header class="sticky top-0 z-40 glass border-b border-white/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="images\logoside.png">
+        <span class="font-extrabold text-xl link-underline">فروشگاه پاستلی</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="index.html" class="link-underline">خانه</a>
+        <a href="categories.html" class="link-underline">دسته‌بندی‌ها</a>
+        <a href="about.html" class="link-underline">درباره ما</a>
+        <a href="contact.html" class="link-underline">تماس با ما</a>
+        <a href="account.html" class="link-underline">پنل ادمین</a>
+       
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="#cart" class="rose-btn px-4 py-2 rounded-lg soft-card text-sm">سبد</a>
+        <button id="menuBtn" class="md:hidden bg-black/70 text-white px-3 py-2 rounded-lg">منو</button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-white/60">
+      <div class="px-4 py-3 flex flex-col gap-3 glass">
+        <a href="index.html" class="link-underline">خانه</a>
+        <a href="categories.html" class="link-underline">دسته‌بندی‌ها</a>
+        <a href="about.html" class="link-underline">درباره ما</a>
+        <a href="contact.html" class="link-underline">تماس با ما</a>
+        <a href="account.html" class="link-underline">پنل ادمین</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="flex flex-col lg:flex-row gap-8">
+      <!-- فیلتر -->
+      <aside class="lg:w-64 glass soft-card rounded-2xl p-5 h-max">
+        <h2 class="font-extrabold text-lg mb-4">فیلتر</h2>
+        <div class="space-y-3">
+          <button data-cat="all" class="w-full peach-btn rounded-xl px-4 py-2">همه</button>
+          <button data-cat="wear" class="w-full bg-white rounded-xl px-4 py-2 soft-card">پوشیدنی</button>
+          <button data-cat="home" class="w-full bg-white rounded-xl px-4 py-2 soft-card">خانه</button>
+          <button data-cat="stationery" class="w-full bg-white rounded-xl px-4 py-2 soft-card">لوازم‌تحریر</button>
+        </div>
+
+        <div class="mt-6">
+          <h3 class="font-bold mb-2">قیمت</h3>
+          <input id="priceRange" type="range" min="0" max="500" value="500" class="w-full">
+          <div class="text-sm mt-1">حداکثر: <span id="priceValue">500</span> هزار تومان</div>
+        </div>
+      </aside>
+
+      <!-- لیست محصولات -->
+      <section class="flex-1">
+        <div class="flex items-center justify-between mb-4">
+          <h1 class="text-2xl font-extrabold">محصولات</h1>
+          <div class="text-sm flex items-center gap-2">
+            <span class="badge">ارسال رایگان</span>
+            <span class="badge">۷ روز ضمانت</span>
+          </div>
+        </div>
+
+        <div id="grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- محصول نمونه ها -->
+          <div class="product bg-white rounded-2xl p-4 soft-card flex flex-col" data-cat="wear" data-price="320">
+              <a href="product.html?id=3" class="w-full aspect-[4/3] rounded-xl soft-card mb-3 flex items-center justify-center" style="background:#CFE3D320">
+                  <img src="images\6.jpg">
+              </a>
+            <div class="font-bold">تیشرت کرم مینیمال</div>
+            <div class="text-sm text-black/70 mt-1 truncate-2">پارچه سبک و راحت با فیت ریلکس.</div>
+            <div class="mt-3 font-extrabold">320,000 تومان</div>
+            <button class="mt-3 peach-btn rounded-xl px-4 py-2 add-to-cart" data-id="3" data-name="تیشرت کرم مینیمال" data-price="320000">افزودن به سبد</button>
+          </div>
+
+          <div class="product bg-white rounded-2xl p-4 soft-card flex flex-col" data-cat="stationery" data-price="95">
+              <a href="product.html?id=2" class="w-full aspect-[4/3] rounded-xl soft-card mb-3 flex items-center justify-center" style="background:#D7C6F520">
+                  <img src="images\5.png">
+                  <rect x="60" y="30" width="80" height="90" rx="10" fill="#D7C6F5" />
+                  <line x1="75" y1="45" x2="125" y2="45" stroke="#b7a5ee" stroke-width="3" />
+                  <line x1="75" y1="60" x2="125" y2="60" stroke="#b7a5ee" stroke-width="3" />
+                  <line x1="75" y1="75" x2="125" y2="75" stroke="#b7a5ee" stroke-width="3" />
+                  </svg>
+              </a>
+              <div class="font-bold">دفتر نقطه‌ای پاستلی</div>
+              <div class="text-sm text-black/70 mt-1 truncate-2">دفتر بولت ژورنال با کاغذ نرم.</div>
+              <div class="mt-3 font-extrabold">95,000 تومان</div>
+              <div class="mt-3 font-extrabold">            </div>
+              <div class="mt-3 font-extrabold">            </div>
+              <button class="mt-3 peach-btn rounded-xl px-4 py-2 add-to-cart" data-id="2" data-name="دفتر نقطه‌ای پاستلی" data-price="95000">افزودن به سبد</button>
+          </div>
+
+          <div class="product bg-white rounded-2xl p-4 soft-card flex flex-col" data-cat="home" data-price="180">
+              <a href="product.html?id=1" class="w-full aspect-[4/3] rounded-xl soft-card mb-3 flex items-center justify-center" style="background:#F4C7B820">
+                  <img src="images\4.png">
+                  <rect x="50" y="40" width="80" height="70" rx="10" fill="#F4C7B8" />
+                  <circle cx="140" cy="70" r="18" fill="none" stroke="#F4C7B8" stroke-width="6" />
+                  </svg>
+              </a>
+            <div class="font-bold">لیوان سرامیکی پاستلی</div>
+            <div class="text-sm text-black/70 mt-1 truncate-2">لیوان لطیف مناسب قهوه صبحگاهی.</div>
+            <div class="mt-3 font-extrabold">180,000 تومان</div>
+            <button class="mt-3 peach-btn rounded-xl px-4 py-2 add-to-cart" data-id="1" data-name="لیوان سرامیکی پاستلی" data-price="180000">افزودن به سبد</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- سبد -->
+      <aside id="cart" class="lg:w-80 glass soft-card rounded-2xl p-5 h-max">
+        <h2 class="font-extrabold text-lg mb-3">سبد خرید</h2>
+        <div id="cartItems" class="space-y-3 text-sm"></div>
+        <div class="mt-4 flex items-center justify-between">
+          <span>جمع:</span>
+          <span id="cartTotal" class="font-bold">0 تومان</span>
+        </div>
+        <button id="checkoutBtn" class="mt-4 rose-btn w-full rounded-xl px-4 py-2">تسویه </button>
+        <p class="text-xs mt-2 text-black/60">تسویه‌حساب صرفاً نمایشی است.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 rounded-t-3xl pastel-gradient text-white">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div><div class="font-extrabold text-lg">فروشگاه پاستلی</div><p class="text-white/90 mt-2 text-sm">مینیمال، لطیف و دلنشین.</p></div>
+        <div><div class="font-bold mb-2">راهنما</div>
+          <ul class="space-y-2 text-sm">
+            <li><a href="about.html" class="underline-offset-4 hover:underline">درباره ما</a></li>
+            <li><a href="contact.html" class="underline-offset-4 hover:underline">تماس با ما</a></li>
+            <li><a href="account.html" class="underline-offset-4 hover:underline">پنل ادمین</a></li>
+          </ul>
+        </div>
+        <div><div class="font-bold mb-2">دسته‌ها</div>
+          <ul class="space-y-2 text-sm">
+            <li><a href="categories.html" class="underline-offset-4 hover:underline">پوشیدنی</a></li>
+            <li><a href="categories.html" class="underline-offset-4 hover:underline">خانه</a></li>
+            <li><a href="categories.html" class="underline-offset-4 hover:underline">لوازم‌تحریر</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-bold mb-2">خبرنامه</div>
+          <div class="flex gap-2">
+            <input type="email" placeholder="ایمیل شما" class="rounded-xl border border-white/30 px-4 py-3 bg-white/90 text-black flex-1"/>
+            <button class="bg-black/80 text-white px-4 py-3 rounded-xl">عضویت</button>
+          </div>
+          <p class="text-sm mt-2 opacity-90">این بخش نمایشی است.</p>
+        </div>
+      </div>
+      <div class="text-xs mt-8 opacity-90">© فروشگاه پاستلی</div>
+    </div>
+  </footer>
+
+  <script>
+    // منوی موبایل
+    const menuBtn=document.getElementById('menuBtn'); const mobileMenu=document.getElementById('mobileMenu');
+    if(menuBtn) menuBtn.addEventListener('click',()=>mobileMenu.classList.toggle('hidden'));
+
+    // فیلتر دسته‌ها
+    const filterBtns=[...document.querySelectorAll('[data-cat]')];
+    const products=[...document.querySelectorAll('.product')];
+    const grid=document.getElementById('grid');
+    const priceRange=document.getElementById('priceRange');
+    const priceValue=document.getElementById('priceValue');
+
+    filterBtns.forEach(b=>b.addEventListener('click',()=>{
+      const cat=b.getAttribute('data-cat');
+      products.forEach(p=>{
+        const pcat=p.getAttribute('data-cat');
+        const pprice=+p.getAttribute('data-price');
+        const max=+priceRange.value;
+        const matchCat=(cat==='all'||pcat===cat);
+        const matchPrice=pprice<=max;
+        p.style.display= matchCat && matchPrice ? '' : 'none';
+      });
+    }));
+
+    priceRange.addEventListener('input',()=>{
+      priceValue.textContent=priceRange.value;
+      filterBtns.find(x=>x.getAttribute('data-cat')==='all').click();
+    });
+
+    // سبد خرید ساده (نمایشی)
+    const cartItems=document.getElementById('cartItems');
+    const cartTotal=document.getElementById('cartTotal');
+    let cart=[];
+
+    function format(t){ return t.toLocaleString('fa-IR') + ' تومان'; }
+
+    function renderCart(){
+      cartItems.innerHTML='';
+      let total=0;
+      cart.forEach((item,idx)=>{
+        total+=item.price*item.qty;
+        const row=document.createElement('div');
+        row.className='flex items-center justify-between gap-2 bg-white rounded-xl p-3 soft-card';
+        row.innerHTML=`
+          <div class="text-sm">
+            <div class="font-bold">${item.name}</div>
+            <div class="text-black/60">${format(item.price)}</div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button class="bg-black/10 rounded-md px-2 py-1" data-act="dec" data-i="${idx}">-</button>
+            <span>${item.qty}</span>
+            <button class="bg-black/10 rounded-md px-2 py-1" data-act="inc" data-i="${idx}">+</button>
+            <button class="rose-btn rounded-md px-2 py-1" data-act="rem" data-i="${idx}">حذف</button>
+          </div>`;
+        cartItems.appendChild(row);
+      });
+      cartTotal.textContent=format(total);
+    }
+
+    document.querySelectorAll('.add-to-cart').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const id=btn.dataset.id, name=btn.dataset.name, price=+btn.dataset.price;
+        const found=cart.find(i=>i.id===id);
+        if(found) found.qty++; else cart.push({id,name,price,qty:1});
+        renderCart();
+      });
+    });
+
+    cartItems.addEventListener('click',(e)=>{
+      const t=e.target; const i=t.getAttribute('data-i');
+      if(i===null) return;
+      if(t.getAttribute('data-act')==='inc') cart[i].qty++;
+      if(t.getAttribute('data-act')==='dec') cart[i].qty=Math.max(1,cart[i].qty-1);
+      if(t.getAttribute('data-act')==='rem') cart.splice(i,1);
+      renderCart();
+    });
+
+    document.getElementById('checkoutBtn').addEventListener('click',()=>{
+      alert('این یک نمونه نمایشی از سبد خرید است.');
+    });
+
+    // مقداردهی اولیه
+    priceValue.textContent=priceRange.value;
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96f910beb70e64e8',t:'MTc1NTI2NDgyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

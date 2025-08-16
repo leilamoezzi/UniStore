@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>فروشگاه پاستلی | ثبت‌نام / ورود </title>
+    <link rel="icon" type="image/png" href="/images/logoside.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @font-face {
+        font-family: 'DastNevis';
+        src: url('fonts/danstevis.otf') format('opentype');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+      }
+      
+      :root {
+        --cream: #f8efe6;
+        --peach: #f4c7b8;
+        --rose: #efa8a4;
+        --sage: #cfe3d3;
+        --lav: #d7c6f5;
+        --ink: #6b3f2c;
+      }
+      
+      html,
+      body {
+        background: linear-gradient(160deg, var(--cream), #fff);
+        color: var(--ink);
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+        font-weight: 300;
+      }
+      
+      body,
+      [lang='fa'],
+      [dir='rtl'] {
+        font-family: 'DastNevis', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial !important;
+        font-weight: 300;
+      }
+      
+      h1,
+      h2,
+      h3,
+      h4,
+      .font-bold,
+      .font-extrabold {
+        font-weight: 400;
+      }
+      
+      .soft-card {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      }
+      
+      .glass {
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(10px);
+      }
+      
+      .pastel-gradient {
+        background: linear-gradient(135deg, var(--peach), var(--lav));
+      }
+      
+      .peach-btn {
+        background: var(--peach);
+        color: #fff;
+      }
+      
+      .peach-btn:hover {
+        background: #efb7a6;
+      }
+      
+      .link-underline {
+        position: relative;
+      }
+      
+      .link-underline::after {
+        content: '';
+        position: absolute;
+        inset-inline: 0;
+        bottom: -3px;
+        height: 2px;
+        background: #b5651d;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: 0.25s;
+      }
+      
+      .link-underline:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+      
+      /* پیام خطای پاستلی */
+      .pastel-error {
+        background: #ffe8e6;
+        color: #9b3e34;
+        border: 1px solid #f4c7b8;
+      }
+      
+      .shake {
+        animation: shake 0.4s ease;
+      }
+      
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+      
+        20% {
+          transform: translateX(-6px);
+        }
+      
+        40% {
+          transform: translateX(6px);
+        }
+      
+        60% {
+          transform: translateX(-4px);
+        }
+      
+        80% {
+          transform: translateX(4px);
+        }
+      }
+      /* --- افکت ورود المان‌ها --- */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.8s ease forwards;
+      }
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      /* --- کارت نرم با هاور --- */
+      .soft-card {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s ease;
+      }
+      .soft-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+        background: rgba(255, 255, 255, 0.85);
+      }
+      
+      /* --- افکت هاور لینک‌ها --- */
+      .link-underline {
+        position: relative;
+        transition: color 0.3s ease;
+      }
+      .link-underline:hover {
+        color: var(--peach);
+      }
+      
+      /* --- افکت درخشش دکمه‌ها --- */
+      .peach-btn,
+      .rose-btn {
+        position: relative;
+        overflow: hidden;
+        transition: background 0.3s ease, transform 0.2s ease;
+      }
+      .peach-btn:hover,
+      .rose-btn:hover {
+        transform: translateY(-2px);
+      }
+      .peach-btn::before,
+      .rose-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.4);
+        transform: skewX(-20deg);
+      }
+      .peach-btn:hover::before,
+      .rose-btn:hover::before {
+        animation: shine 0.7s ease;
+      }
+      @keyframes shine {
+        to {
+          left: 150%;
+        }
+      }
+      
+      /* --- افکت زوم روی تصاویر تیم (درصورت استفاده) --- */
+      .team-img {
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+      .team-img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+      
+      @keyframes shine {
+        to {
+          left: 150%;
+        }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen">
+    <div class="w-full text-center text-sm text-white py-2 pastel-gradient">این صفحه نمایشی است؛ ورود واقعی روی سرور انجام نمی‌شود ✨</div>
+
+    <header class="sticky top-0 z-40 glass border-b border-white/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2">
+          <img src="images\logoside.png" />
+          <span class="font-extrabold text-xl link-underline">فروشگاه پاستلی</span>
+          <span class="text-xs text-gray-600 bg-white/80 px-2 py-1 rounded-lg ml-2">مینیمال پاستلی</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="index.html" class="link-underline">خانه</a>
+          <a href="categories.html" class="link-underline">دسته‌بندی‌ها</a>
+          <a href="about.html" class="link-underline">درباره ما</a>
+          <a href="contact.html" class="link-underline">تماس با ما</a>
+          <a href="account.html" class="link-underline">پنل ادمین</a>
+        </nav>
+        <button id="menuBtn" class="md:hidden bg-black/70 text-white px-3 py-2 rounded-lg">منو</button>
+      </div>
+      <div id="mobileMenu" class="md:hidden hidden border-t border-white/60">
+        <div class="px-4 py-3 flex flex-col gap-3 glass">
+          <a href="index.html" class="link-underline">خانه</a>
+          <a href="categories.html" class="link-underline">دسته‌بندی‌ها</a>
+          <a href="about.html" class="link-underline">درباره ما</a>
+          <a href="contact.html" class="link-underline">تماس با ما</a>
+          <a href="dashboard.html" class="link-underline">پنل کاربری</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <section class="rounded-3xl soft-card glass p-8">
+        <div class="flex gap-3 text-sm">
+          <button class="tab bg-white rounded-xl px-4 py-2 soft-card" data-tab="signup">ثبت‌نام</button>
+          <button class="tab peach-btn rounded-xl px-4 py-2" data-tab="login">ورود</button>
+        </div>
+
+        <!-- بدنه تب‌ها -->
+        <div id="tabContent" class="mt-6">
+          <!-- فرم ورود -->
+          <form id="loginForm" class="space-y-4 max-w-md">
+            <div>
+              <label class="text-sm">ایمیل</label>
+              <input id="email" required type="email" class="w-full bg-white rounded-xl soft-card px-4 py-3 mt-1" placeholder="example@mail.com" autocomplete="username" />
+            </div>
+            <div>
+              <label class="text-sm">رمز عبور</label>
+              <input id="password" required type="password" minlength="1" class="w-full bg-white rounded-xl soft-card px-4 py-3 mt-1" placeholder="رمز شما" autocomplete="current-password" />
+            </div>
+
+            <div id="errorBox" class="hidden pastel-error rounded-xl px-4 py-3 soft-card text-sm">اوه! ورود ناموفق بود — لطفاً ایمیل و رمز را دقیق چک کن. ! 🌸</div>
+
+            <button class="peach-btn rounded-xl px-6 py-3 w-full">ورود</button>
+            <div class="text-xs text-black/60">ورود واقعی انجام نمی‌شود؛ این یک نمونه نمایشی است.</div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mt-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 rounded-t-3xl pastel-gradient text-white">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div>
+            <div class="font-extrabold text-lg">فروشگاه پاستلی</div>
+            <p class="text-white/90 mt-2 text-sm">مینیمال، لطیف و دلنشین.</p>
+          </div>
+          <div>
+            <div class="font-bold mb-2">راهنما</div>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a href="about.html" class="underline-offset-4 hover:underline">درباره ما</a>
+              </li>
+              <li>
+                <a href="contact.html" class="underline-offset-4 hover:underline">تماس با ما</a>
+              </li>
+              <li>
+                <a href="account.html" class="underline-offset-4 hover:underline">ثبت‌نام/ورود</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <div class="font-bold mb-2">دسته‌ها</div>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a href="categories.html" class="underline-offset-4 hover:underline">پوشیدنی</a>
+              </li>
+              <li>
+                <a href="categories.html" class="underline-offset-4 hover:underline">خانه</a>
+              </li>
+              <li>
+                <a href="categories.html" class="underline-offset-4 hover:underline">لوازم‌تحریر</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <div class="font-bold mb-2">خبرنامه
+              </div>
+            <div class="flex gap-2">
+              <input type="email" placeholder="ایمیل شما" class="rounded-xl border border-white/30 px-4 py-3 bg-white/90 text-black flex-1" />
+              <button class="bg-black/80 text-white px-4 py-3 rounded-xl">عضویت</button>
+            </div>
+            <p class="text-sm mt-2 opacity-90">این بخش نمایشی است.</p>
+          </div>
+        </div>
+        <div class="text-xs mt-8 opacity-90">© فروشگاه پاستلی</div>
+      </div>
+    </footer>
+
+    <script>
+      // منوی موبایل
+      const menuBtn = document.getElementById('menuBtn')
+      const mobileMenu = document.getElementById('mobileMenu')
+      if (menuBtn) menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'))
+      
+      // سوییچ تب‌ها (ثبت‌نام/ورود)
+      const tabs = document.querySelectorAll('.tab')
+      tabs.forEach((t) => {
+        t.addEventListener('click', () => {
+          tabs.forEach((x) => x.classList.remove('peach-btn'))
+          t.classList.add('peach-btn')
+          // این نمونه فقط تب ورود را فعال نگه می‌دارد
+        })
+      })
+      
+      // ورود نمایشی با بررسی دقیق
+      const form = document.getElementById('loginForm')
+      const email = document.getElementById('email')
+      const password = document.getElementById('password')
+      const errorBox = document.getElementById('errorBox')
+      
+      form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const ok = email.value.trim().toLowerCase() === 'leila@gmail.com' && password.value === 'mahya'
+        if (ok) {
+          // هدایت به پنل کاربری
+          location.href = 'dashboard.html'
+        } else {
+          // نمایش پیام خطا با انیمیشن لرزش
+          errorBox.classList.remove('hidden')
+          errorBox.classList.remove('shake')
+          void errorBox.offsetWidth // ریست انیمیشن
+          errorBox.classList.add('shake')
+        }
+      })
+    </script>
+    <script>
+      ;(function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document
+          if (b) {
+            var d = b.createElement('script')
+            d.innerHTML = "window.__CF$cv$params={r:'96f95ce781014d85',t:'MTc1NTI2Nzk0My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"
+            b.getElementsByTagName('head')[0].appendChild(d)
+          }
+        }
+        if (document.body) {
+          var a = document.createElement('iframe')
+          a.height = 1
+          a.width = 1
+          a.style.position = 'absolute'
+          a.style.top = 0
+          a.style.left = 0
+          a.style.border = 'none'
+          a.style.visibility = 'hidden'
+          document.body.appendChild(a)
+          if ('loading' !== document.readyState) c()
+          else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c)
+          else {
+            var e = document.onreadystatechange || function () {}
+            document.onreadystatechange = function (b) {
+              e(b)
+              'loading' !== document.readyState && ((document.onreadystatechange = e), c())
+            }
+          }
+        }
+      })()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>فروشگاه پاستلی | درباره ما</title>
+    <link rel="icon" type="image/png" href="/images/logoside.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @font-face {
+        font-family: 'DastNevis';
+        src: url('fonts/danstevis.otf') format('opentype');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+      }
+      
+      :root {
+        --cream: #f8efe6;
+        --peach: #f4c7b8;
+        --rose: #efa8a4;
+        --sage: #cfe3d3;
+        --lav: #d7c6f5;
+        --ink: #6b3f2c;
+      }
+      
+      html,
+      body {
+        background: linear-gradient(160deg, var(--cream), #fff);
+        color: var(--ink);
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+        font-weight: 300;
+      }
+      
+      body,
+      [lang='fa'],
+      [dir='rtl'] {
+        font-family: 'DastNevis', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial !important;
+        font-weight: 300;
+      }
+      
+      h1,
+      h2,
+      h3,
+      h4,
+      .font-bold,
+      .font-extrabold {
+        font-weight: 400;
+      }
+      
+      .soft-card {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      }
+      
+      .glass {
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(10px);
+      }
+      
+      .pastel-gradient {
+        background: linear-gradient(135deg, var(--peach), var(--lav));
+      }
+      
+      .peach-btn {
+        background: var(--peach);
+        color: #fff;
+      }
+      
+      .peach-btn:hover {
+        background: #efb7a6;
+      }
+      
+      .rose-btn {
+        background: var(--rose);
+        color: #fff;
+      }
+      
+      .rose-btn:hover {
+        background: #e79792;
+      }
+      
+      .link-underline {
+        position: relative;
+      }
+      
+      .link-underline::after {
+        content: '';
+        position: absolute;
+        inset-inline: 0;
+        bottom: -3px;
+        height: 2px;
+        background: #b5651d;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: 0.25s;
+      }
+      
+      .link-underline:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+      
+      .img-drop {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .img-drop input[type='file'] {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        cursor: pointer;
+      }
+      
+      .img-preview {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+      
+      .img-placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #00000080;
+      }
+      
+      /* --- افکت هاور کارت‌ها --- */
+.soft-card {
+  transition: all 0.3s ease;
+}
+.soft-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* --- افکت هاور لینک‌ها --- */
+.link-underline {
+  transition: color 0.3s ease;
+}
+.link-underline:hover {
+  color: var(--peach);
+}
+
+/* --- افکت زوم روی تصاویر --- */
+.img-drop img {
+  transition: transform 0.5s ease;
+}
+.img-drop:hover img {
+  transform: scale(1.05);
+}
+
+/* --- افکت درخشش دکمه‌ها --- */
+.peach-btn,
+.rose-btn{ /* شامل دکمه عضویت */
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: transform 0.2s ease, background 0.3s ease;
+  cursor: pointer;
+}
+
+.peach-btn:hover,
+.rose-btn:hover {
+  transform: translateY(-2px);
+}
+
+.peach-btn::before,
+.rose-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: skewX(-20deg);
+  z-index: 2;
+}
+
+.peach-btn:hover::before,
+.rose-btn:hover::before {
+  animation: shine 0.7s ease;
+}
+
+/* --- keyframes برای درخشش --- */
+@keyframes shine {
+  to {
+    left: 150%;
+  }
+}
+
+    </style>
+  </head>
+  <body class="min-h-screen">
+    <div class="w-full text-center text-sm text-white py-2 pastel-gradient">ارسال رایگان برای سفارش‌های بالای 500 هزار تومان ✨</div>
+
+    <header class="sticky top-0 z-40 glass border-b border-white/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2">
+          <img src="images\logoside.png" />
+          <span class="font-extrabold text-xl link-underline">فروشگاه پاستلی</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="index.html" class="link-underline">خانه</a>
+          <a href="categories.html" class="link-underline">دسته‌بندی‌ها</a>
+          <a href="about.html" class="link-underline">درباره ما</a>
+          <a href="contact.html" class="link-underline">تماس با ما</a>
+          <a href="account.html" class="link-underline">پنل ادمین</a>
+         
+        </nav>
+        <button id="menuBtn" class="md:hidden bg-black/70 text-white px-3 py-2 rounded-lg">منو</button>
+      </div>
+      <div id="mobileMenu" class="md:hidden hidden border-t border-white/60">
+        <div class="px-4 py-3 flex flex-col gap-3 glass">
+          <a href="index.html" class="link-underline">خانه</a>
+          <a href="categories.html" class="link-underline">دسته‌بندی‌ها</a>
+          <a href="about.html" class="link-underline">درباره ما</a>
+          <a href="contact.html" class="link-underline">تماس با ما</a>
+          <a href="account.html" class="link-underline">پنل ادمین</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <!-- Hero -->
+      <section class="rounded-3xl soft-card glass p-8 lg:p-14 overflow-hidden relative">
+        <div class="absolute inset-0 opacity-30" aria-hidden="true">
+          <svg width="100%" height="100%">
+            <circle cx="12%" cy="18%" r="90" fill="var(--sage)"></circle>
+            <circle cx="85%" cy="25%" r="110" fill="var(--lav)"></circle>
+            <circle cx="70%" cy="80%" r="140" fill="var(--peach)"></circle>
+            <circle cx="15%" cy="75%" r="70" fill="var(--rose)"></circle>
+          </svg>
+        </div>
+        <div class="relative z-10 grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <h1 class="text-3xl lg:text-5xl font-extrabold leading-snug">درباره فروشگاه پاستلی</h1>
+            <p class="mt-5 text-black/75 max-w-xl">ما با عشق به رنگ‌های پاستلی و طراحی مینیمال، محصولاتی لطیف و دلنشین می‌سازیم. هدف ما تجربه‌ای آرام، ساده و الهام‌بخش است.</p>
+          </div>
+          <div class="img-drop rounded-2xl soft-card pastel-gradient aspect-[6/3]">
+            <img src="images\1.jpg" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ارزش‌ها -->
+      <section class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="glass rounded-2xl p-6 soft-card">
+          <div class="text-xl font-extrabold mb-2">مینیمال</div>
+          <p class="text-black/75 leading-8">سادگی در طراحی، تمرکز بر جزئیات مهم و دوری از شلوغی.</p>
+        </div>
+        <div class="glass rounded-2xl p-6 soft-card">
+          <div class="text-xl font-extrabold mb-2">دوست‌داشتنی</div>
+          <p class="text-black/75 leading-8">رنگ‌های پاستلی لطیف، بافت‌های نرم و بسته‌بندی گرم.</p>
+        </div>
+        <div class="glass rounded-2xl p-6 soft-card">
+          <div class="text-xl font-extrabold mb-2">کیفیت</div>
+          <p class="text-black/75 leading-8">مواد اولیه خوب، تولید کم‌تیراژ و کنترل کیفیت دقیق.</p>
+        </div>
+      </section>
+
+      <!-- تایم‌لاین -->
+      <section class="mt-10 glass rounded-2xl p-8 soft-card">
+        <h2 class="text-2xl font-extrabold mb-6">داستان کوتاه</h2>
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full pastel-gradient soft-card"></div>
+            <div>
+              <div class="font-bold">آغاز با یک ایده</div>
+              <p class="text-black/70">از یک میز کوچک و علاقه به رنگ‌های ملایم، مجموعه پاستلی شکل گرفت.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full pastel-gradient soft-card"></div>
+            <div>
+              <div class="font-bold">کالکشن‌های محدود</div>
+              <p class="text-black/70">هر فصل چند محصول منتخب با دقت و عشق عرضه می‌کنیم.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full pastel-gradient soft-card"></div>
+            <div>
+              <div class="font-bold">گسترش آرام</div>
+              <p class="text-black/70">با حفظ کیفیت و هویت، آرام‌آرام خانواده محصولات بزرگ شد.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- تیم -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-extrabold mb-6">تیم کوچک ما</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="glass rounded-2xl p-5 soft-card">
+            <div class="img-drop rounded-xl aspect-square pastel-gradient mb-3">
+              <img src="images\3.jpg" />
+              <div class="img-placeholder h-full"></div>
+            </div>
+            <div class="font-bold">لیلا معزی</div>
+            <div class="text-sm text-black/70">دانشجو</div>
+          </div>
+          <div class="glass rounded-2xl p-5 soft-card">
+            <div class="img-drop rounded-xl aspect-square pastel-gradient mb-3">
+              <img src="images\2.jpg" />
+            </div>
+            <div class="font-bold">فاطمه مهیا پور</div>
+            <div class="text-sm text-black/70">دانشجو</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- تماس کوتاه -->
+      <section class="mt-10 glass rounded-2xl p-6 soft-card">
+        <div class="flex items-center justify-between gap-4 flex-wrap">
+          <div>
+            <div class="text-xl font-extrabold">با ما در ارتباط باش</div>
+            <p class="text-black/70">سوال داری؟ خوشحال می‌شویم کمک کنیم.</p>
+          </div>
+          <a href="contact.html" class="peach-btn rounded-xl px-5 py-3">تماس با ما</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mt-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 rounded-t-3xl pastel-gradient text-white">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div>
+            <div class="font-extrabold text-lg">فروشگاه پاستلی</div>
+            <p class="text-white/90 mt-2 text-sm">مینیمال، لطیف و دلنشین.</p>
+          </div>
+          <div>
+            <div class="font-bold mb-2">راهنما</div>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a href="about.html" class="underline-offset-4 hover:underline">درباره ما</a>
+              </li>
+              <li>
+                <a href="contact.html" class="underline-offset-4 hover:underline">تماس با ما</a>
+              </li>
+              <li>
+                  <a href="account.html" class="underline-offset-4 hover:underline">پنل ادمین</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <div class="font-bold mb-2">دسته‌ها</div>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a href="categories.html" class="underline-offset-4 hover:underline">پوشیدنی</a>
+              </li>
+              <li>
+                <a href="categories.html" class="underline-offset-4 hover:underline">خانه</a>
+              </li>
+              <li>
+                <a href="categories.html" class="underline-offset-4 hover:underline">لوازم‌تحریر</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <div class="font-bold mb-2">خبرنامه </div>
+            <div class="flex gap-2">
+              <input type="email" placeholder="ایمیل شما" class="rounded-xl border border-white/30 px-4 py-3 bg-white/90 text-black flex-1" />
+              <button class="bg-black/80 text-white px-4 py-3 rounded-xl">عضویت</button>
+            </div>
+            <p class="text-sm mt-2 opacity-90">این بخش نمایشی است.</p>
+          </div>
+        </div>
+        <div class="text-xs mt-8 opacity-90">© فروشگاه پاستلی</div>
+      </div>
+    </footer>
+
+    <script>
+      const menuBtn = document.getElementById('menuBtn')
+      const mobileMenu = document.getElementById('mobileMenu')
+      if (menuBtn) menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'))
+      
+      // انتخاب و پیش‌نمایش تصویر
+      document.querySelectorAll('.img-drop').forEach((box) => {
+        const input = box.querySelector('input[type=file]')
+        const preview = box.querySelector('.img-preview')
+        const ph = box.querySelector('.img-placeholder')
+        input.addEventListener('change', () => {
+          const f = input.files[0]
+          if (!f) return
+          const url = URL.createObjectURL(f)
+          preview.src = url
+          preview.style.display = 'block'
+          ph.style.display = 'none'
+        })
+      })
+    </script>
+    <script>
+      ;(function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document
+          if (b) {
+            var d = b.createElement('script')
+            d.innerHTML = "window.__CF$cv$params={r:'96f945a2534ae570',t:'MTc1NTI2Njk5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"
+            b.getElementsByTagName('head')[0].appendChild(d)
+          }
+        }
+        if (document.body) {
+          var a = document.createElement('iframe')
+          a.height = 1
+          a.width = 1
+          a.style.position = 'absolute'
+          a.style.top = 0
+          a.style.left = 0
+          a.style.border = 'none'
+          a.style.visibility = 'hidden'
+          document.body.appendChild(a)
+          if ('loading' !== document.readyState) c()
+          else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c)
+          else {
+            var e = document.onreadystatechange || function () {}
+            document.onreadystatechange = function (b) {
+              e(b)
+              'loading' !== document.readyState && ((document.onreadystatechange = e), c())
+            }
+          }
+        }
+      })()
+    </script>
+  </body>
+</html>

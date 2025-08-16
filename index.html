@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>فروشگاه پاستلی | خانه</title>
+  <link rel="icon" type="image/png" href="/images/logoside.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+   
+    @font-face {
+      font-family: 'DastNevis';
+      src: url('fonts/danstevis.otf') format('opentype');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root{
+      --cream:#F8EFE6;
+      --peach:#F4C7B8;
+      --rose:#EFA8A4;
+      --sage:#CFE3D3;
+      --lav:#D7C6F5;
+      --ink:#6B3F2C; /* دارچینی گرم */
+    }
+
+    /* پایه تایپوگرافی و رنگ‌ها */
+    html, body{
+      background: linear-gradient(160deg,var(--cream),#fff);
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      font-weight: 300; /* خیلی نازک */
+    }
+    /* اعمال خودکار فونت دست‌نویس برای فارسی/RTL */
+    body, [lang="fa"], [dir="rtl"]{
+      font-family: 'DastNevis', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial !important;
+      font-weight: 300;
+    }
+    /* تیترها کمی ضخیم‌تر برای خوانایی */
+    h1,h2,h3,h4,.font-extrabold,.font-bold{ font-weight: 400; }
+
+    /* استایل‌های تم پاستلی */
+    .soft-card{ box-shadow: 0 10px 30px rgba(0,0,0,.06); }
+    .glass{ background: rgba(255,255,255,.72); backdrop-filter: blur(10px); }
+    .pastel-gradient{ background: linear-gradient(135deg,var(--peach),var(--lav)); }
+    .peach-btn{ background: var(--peach); }
+    .peach-btn:hover{ background:#efb7a6; }
+    .rose-btn{ background: var(--rose); }
+    .rose-btn:hover{ background:#e79792; }
+    .link-underline{ position:relative; }
+    .link-underline::after{ content:""; position:absolute; inset-inline:0; bottom:-3px; height:2px; background:#B5651D; transform:scaleX(0); transform-origin:right; transition:.25s; }
+    .link-underline:hover::after{ transform:scaleX(1); transform-origin:left; }
+    .truncate-2{ display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+
+    /* --- کارت نرم با هاور --- */
+.soft-card {
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+  transition: all 0.3s ease;
+}
+.soft-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 35px rgba(0,0,0,.12);
+  background: rgba(255,255,255,0.85);
+}
+
+/* --- لینک‌ها با زیرخط متحرک --- */
+.link-underline {
+  position: relative;
+  transition: color 0.3s ease;
+}
+.link-underline::after {
+  content:"";
+  position:absolute;
+  inset-inline:0;
+  bottom:-3px;
+  height:2px;
+  background:#B5651D;
+  transform:scaleX(0);
+  transform-origin:right;
+  transition:.25s;
+}
+.link-underline:hover {
+  color: var(--peach);
+}
+.link-underline:hover::after {
+  transform:scaleX(1);
+  transform-origin:left;
+}
+
+/* --- تصاویر با هاور زوم --- */
+img {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* --- کارت نرم با هاور --- */
+.soft-card {
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+  transition: all 0.3s ease;
+}
+.soft-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 35px rgba(0,0,0,.12);
+  background: rgba(255,255,255,0.85);
+}
+
+/* --- لینک‌ها با زیرخط متحرک --- */
+.link-underline {
+  position: relative;
+  transition: color 0.3s ease;
+}
+.link-underline::after {
+  content:"";
+  position:absolute;
+  inset-inline:0;
+  bottom:-3px;
+  height:2px;
+  background:#B5651D;
+  transform:scaleX(0);
+  transform-origin:right;
+  transition:.25s;
+}
+.link-underline:hover {
+  color: var(--peach);
+}
+.link-underline:hover::after {
+  transform:scaleX(1);
+  transform-origin:left;
+}
+
+/* --- تصاویر با هاور زوم --- */
+.img-drop img, .img-preview {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.img-drop:hover img, .img-drop:hover .img-preview {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* --- دکمه‌ها با افکت درخشش --- */
+.peach-btn, .rose-btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+.peach-btn:hover, .rose-btn:hover{
+  transform: translateY(-2px);
+}
+.peach-btn::before, .rose-btn::before{
+  content: '';
+  position: absolute;
+  top:0; left:-100%;
+  width:100%; height:100%;
+  background: rgba(255,255,255,0.4);
+  transform: skewX(-20deg);
+  z-index:2;
+}
+.peach-btn:hover::before, .rose-btn:hover::before {
+  animation: shine 0.7s ease;
+}
+@keyframes shine {
+  to { left:150%; }
+}
+  </style>
+</head>
+<body class="min-h-screen">
+  <!-- نوار اعلان -->
+  <div class="w-full text-center text-sm text-white py-2 pastel-gradient">
+    ارسال رایگان برای سفارش‌های بالای 500 هزار تومان ✨
+  </div>
+
+  <!-- هدر مشترک -->
+  <header class="sticky top-0 z-40 glass border-b border-white/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="images\logoside.png">
+        <span class="font-extrabold text-xl link-underline">فروشگاه پاستلی</span>
+       
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="index.html" class="link-underline">خانه</a>
+        <a href="categories.html" class="link-underline">دسته‌بندی‌ها</a>
+        <a href="about.html" class="link-underline">درباره ما</a>
+        <a href="contact.html" class="link-underline">تماس با ما</a>
+       
+        <a href="account.html" class="link-underline">ورود ادمین</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="categories.html" class="peach-btn px-4 py-2 rounded-lg soft-card text-sm">جستجو</a>
+        <a href="categories.html#cart" class="rose-btn px-4 py-2 rounded-lg soft-card text-sm">سبد</a>
+        <button id="menuBtn" class="md:hidden bg-black/70 text-white px-3 py-2 rounded-lg">منو</button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-white/60">
+      <div class="px-4 py-3 flex flex-col gap-3 glass">
+        <a href="index.html" class="link-underline">خانه</a>
+        <a href="categories.html" class="link-underline">دسته‌بندی‌ها</a>
+        <a href="about.html" class="link-underline">درباره ما</a>
+        <a href="contact.html" class="link-underline">تماس با ما</a>
+        <a href="account.html" class="link-underline">پنل ادمین</a>
+       
+      </div>
+    </div>
+  </header>
+
+  <!-- هیرو -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 lg:pt-16">
+    <div class="rounded-3xl soft-card glass overflow-hidden relative">
+      <div class="absolute inset-0 opacity-30" aria-hidden="true">
+        <svg width="100%" height="100%">
+          <circle cx="12%" cy="18%" r="90" fill="var(--sage)"></circle>
+          <circle cx="85%" cy="25%" r="110" fill="var(--lav)"></circle>
+          <circle cx="70%" cy="80%" r="140" fill="var(--peach)"></circle>
+          <circle cx="15%" cy="75%" r="70" fill="var(--rose)"></circle>
+        </svg>
+      </div>
+      <div class="relative z-10 p-8 lg:p-14 grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-3xl lg:text-5xl font-extrabold leading-snug">
+            فروشگاه پاستلی
+          
+          </h1>
+          <p class="mt-5 text-black/70 max-w-xl">
+            بافت لطیف رنگ‌ها، طراحی تمیز و تجربه خرید دلنشین. کالکشن‌های محدود با الهام از کرم و کالباسی.
+          </p>
+          <div class="mt-7 flex flex-wrap items-center gap-3">
+            <a href="categories.html" class="peach-btn px-6 py-3 rounded-xl soft-card">مشاهده محصولات</a>
+            <a href="about.html" class="bg-white px-6 py-3 rounded-xl text-black/80 soft-card">درباره ما</a>
+          </div>
+          <div class="mt-6 flex items-center gap-4 text-sm">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full" style="background:var(--rose)"></span> بسته‌بندی پاستلی
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full" style="background:var(--lav)"></span> بازگشت ۷ روزه
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full" style="background:var(--sage)"></span> ارسال رایگان
+            </div>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="w-full aspect-[4/3] rounded-2xl soft-card pastel-gradient flex items-center justify-center">
+            <!-- کیف دستی پاستلی -->
+              <img src="images\1.jpg" width="500" height="500">
+              <defs>
+                <linearGradient id="bag" x1="0" x2="1">
+                  <stop offset="0" stop-color="#F4C7B8"/>
+                  <stop offset="1" stop-color="#D7C6F5"/>
+                </linearGradient>
+              </defs>
+              <rect x="20" y="40" width="160" height="90" rx="14" fill="url(#bag)" stroke="#00000010"/>
+              <path d="M60 40 C60 15, 140 15, 140 40" fill="none" stroke="#2F2A2A" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="80" cy="75" r="6" fill="#fff"/><circle cx="120" cy="75" r="6" fill="#fff"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- محصولات پیشنهادی -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex items-center justify-between">
+      <h2 class="text-2xl font-extrabold">پیشنهادهای پاستلی</h2>
+      <a href="categories.html" class="text-sm link-underline">مشاهده همه</a>
+    </div>
+    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- کارت 1 -->
+      <a href="product.html?id=1" class="bg-white rounded-2xl p-4 soft-card flex flex-col hover:translate-y-0.5 transition">
+        <div class="w-full aspect-[4/3] rounded-xl soft-card mb-3 flex items-center justify-center" style="background:#F4C7B820">
+          <!-- SVG لیوان -->
+          <svg viewBox="0 0 200 140" class="w-4/5">
+              <img src="images\4.png">
+            <circle cx="140" cy="70" r="18" fill="none" stroke="#F4C7B8" stroke-width="6"/>
+          </svg>
+        </div>
+        <div class="font-bold">لیوان سرامیکی پاستلی</div>
+        <div class="text-sm text-black/70 mt-1 truncate-2">لیوان لطیف مناسب قهوه صبحگاهی.</div>
+        <div class="mt-3 font-extrabold">180,000 تومان</div>
+      </a>
+      <!-- کارت 2 -->
+      <a href="product.html?id=2" class="bg-white rounded-2xl p-4 soft-card flex flex-col hover:translate-y-0.5 transition">
+        <div class="w-full aspect-[4/3] rounded-xl soft-card mb-3 flex items-center justify-center" style="background:#D7C6F520">
+          <!-- SVG دفتر -->
+         
+              <img src="images\5.png" width="295" height="316">
+            <line x1="75" y1="45" x2="125" y2="45" stroke="#b7a5ee" stroke-width="3"/>
+            <line x1="75" y1="60" x2="125" y2="60" stroke="#b7a5ee" stroke-width="3"/>
+            <line x1="75" y1="75" x2="125" y2="75" stroke="#b7a5ee" stroke-width="3"/>
+          </svg>
+        </div>
+        <div class="font-bold">دفتر نقطه‌ای پاستلی</div>
+        <div class="text-sm text-black/70 mt-1 truncate-2">دفتر بولت ژورنال با کاغذ نرم.</div>
+        <div class="mt-3 font-extrabold">95,000 تومان</div>
+      </a>
+      <!-- کارت 3 -->
+      <a href="product.html?id=3" class="bg-white rounded-2xl p-4 soft-card flex flex-col hover:translate-y-0.5 transition">
+        <div class="w-full aspect-[4/3] rounded-xl soft-card mb-3 flex items-center justify-center" style="background:#CFE3D320">
+          <!-- SVG تیشرت -->
+            <img src="images\6.jpg" width="295" height="316">
+          
+        </div>
+        <div class="font-bold">تیشرت کرم مینیمال</div>
+        <div class="text-sm text-black/70 mt-1 truncate-2">پارچه سبک و راحت با فیت ریلکس.</div>
+        <div class="mt-3 font-extrabold">320,000 تومان</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- درباره کوتاه -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+    <div class="rounded-3xl soft-card glass p-8 lg:p-12 grid lg:grid-cols-2 gap-10">
+      <div>
+        <h3 class="text-xl font-extrabold mb-4">چرا پاستلی ؟</h3>
+        <p class="text-black/75 leading-8">
+          انتخاب رنگ‌های پاستلی برای آرامش و لطافت. بسته‌بندی دوست‌داشتنی و تجربه کاربری مینیمال. کالکشن‌های کوچک و باکیفیت.
+        </p>
+        <div class="mt-6">
+          <a href="about.html" class="peach-btn px-6 py-3 rounded-xl soft-card">بیشتر بدانید</a>
+        </div>
+      </div>
+      <div class="rounded-2xl soft-card pastel-gradient p-8 flex items-center justify-center">
+        <svg viewBox="0 0 200 140" class="w-3/4">
+          <path d="M100 120 C40 80, 30 55, 50 40 C70 25, 95 40, 100 55 C105 40, 130 25, 150 40 C170 55, 160 80, 100 120 Z" fill="#EFA8A4" opacity=".9"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- فوتر -->
+  <footer>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 rounded-t-3xl pastel-gradient text-white">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <div class="font-extrabold text-lg">
+            فروشگاه پاستلی</div>
+          <p class="text-white/90 mt-2 text-sm">مینیمال، لطیف و دلنشین.</p>
+        </div>
+        <div>
+          <div class="font-bold mb-2">راهنما</div>
+          <ul class="space-y-2 text-sm">
+            <li><a href="about.html" class="underline-offset-4 hover:underline">درباره ما</a></li>
+            <li><a href="contact.html" class="underline-offset-4 hover:underline">تماس با ما</a></li>
+            <li><a href="account.html" class="underline-offset-4 hover:underline">ثبت‌نام/ورود</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-bold mb-2">دسته‌ها</div>
+          <ul class="space-y-2 text-sm">
+            <li><a href="categories.html" class="underline-offset-4 hover:underline">پوشیدنی</a></li>
+            <li><a href="categories.html" class="underline-offset-4 hover:underline">خانه</a></li>
+            <li><a href="categories.html" class="underline-offset-4 hover:underline">لوازم‌تحریر</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-bold mb-2">خبرنامه </div>
+          <div class="flex gap-2">
+            <input type="email" placeholder="ایمیل شما" class="rounded-xl border border-white/30 px-4 py-3 bg-white/90 text-black flex-1"/>
+            <button class="bg-black/80 text-white px-4 py-3 rounded-xl">عضویت</button>
+          </div>
+          <p class="text-sm mt-2 opacity-90">این بخش نمایشی است.</p>
+        </div>
+      </div>
+      <div class="text-xs mt-8 opacity-90">© فروشگاه پاستلی</div>
+    </div>
+  </footer>
+
+  <script>
+    // منوی موبایل
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if(menuBtn) menuBtn.addEventListener('click', ()=> mobileMenu.classList.toggle('hidden'));
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96f8ff8376d716f0',t:'MTc1NTI2NDExOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
