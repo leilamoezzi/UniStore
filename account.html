@@ -248,11 +248,11 @@
           <form id="loginForm" class="space-y-4 max-w-md">
             <div>
               <label class="text-sm">ایمیل</label>
-              <input id="email"  class="w-full bg-white rounded-xl soft-card px-4 py-3 mt-1" placeholder="example@mail.com" autocomplete="username" />
+              <input id="email"   class="w-full bg-white rounded-xl soft-card px-4 py-3 mt-1" placeholder="example@mail.com" autocomplete="username" />
             </div>
             <div>
               <label class="text-sm">رمز عبور</label>
-              <input id="password" required type="password" minlength="1" class="w-full bg-white rounded-xl soft-card px-4 py-3 mt-1" placeholder="رمز شما" autocomplete="current-password" />
+              <input id="password"  minlength="1" class="w-full bg-white rounded-xl soft-card px-4 py-3 mt-1" placeholder="رمز شما" autocomplete="current-password" />
             </div>
 
             <div id="errorBox" class="hidden pastel-error rounded-xl px-4 py-3 soft-card text-sm">اوه! ورود ناموفق بود — لطفاً ایمیل و رمز را دقیق چک کن. ! 🌸</div>
@@ -337,7 +337,7 @@
       
       form.addEventListener('submit', (e) => {
         e.preventDefault()
-        const ok = email.value.trim().toLowerCase() === '@gmail.com' && password.value === ''
+        const ok = email.value.trim().toLowerCase() === 'kargah@gmail.com' && password.value === 'kargah'
         if (ok) {
           // هدایت به پنل کاربری
           location.href = 'dashboard.html'
@@ -384,5 +384,3 @@
     </script>
   </body>
 </html>
-
-
