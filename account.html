@@ -337,7 +337,7 @@
       
       form.addEventListener('submit', (e) => {
         e.preventDefault()
-        const ok = email.value.trim().toLowerCase() === 'leila@gmail.com' && password.value === 'mahya'
+        const ok = email.value.trim().toLowerCase() === '' && password.value === ''
         if (ok) {
           // هدایت به پنل کاربری
           location.href = 'dashboard.html'
@@ -384,3 +384,4 @@
     </script>
   </body>
 </html>
+
