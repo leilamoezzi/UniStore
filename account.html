@@ -337,17 +337,11 @@
       
       form.addEventListener('submit', (e) => {
         e.preventDefault()
-        const ok = email.value.trim().toLowerCase() === 'kargah@gmail.com' && password.value === 'kargah'
-        if (ok) {
+      
+        
           // هدایت به پنل کاربری
           location.href = 'dashboard.html'
-        } else {
-          // نمایش پیام خطا با انیمیشن لرزش
-          errorBox.classList.remove('hidden')
-          errorBox.classList.remove('shake')
-          void errorBox.offsetWidth // ریست انیمیشن
-          errorBox.classList.add('shake')
-        }
+        
       })
     </script>
     <script>
@@ -384,3 +378,4 @@
     </script>
   </body>
 </html>
+
