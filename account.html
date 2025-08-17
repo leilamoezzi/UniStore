@@ -248,7 +248,7 @@
           <form id="loginForm" class="space-y-4 max-w-md">
             <div>
               <label class="text-sm">ایمیل</label>
-              <input id="email" required type="email" class="w-full bg-white rounded-xl soft-card px-4 py-3 mt-1" placeholder="example@mail.com" autocomplete="username" />
+              <input id="email"  class="w-full bg-white rounded-xl soft-card px-4 py-3 mt-1" placeholder="example@mail.com" autocomplete="username" />
             </div>
             <div>
               <label class="text-sm">رمز عبور</label>
@@ -337,7 +337,7 @@
       
       form.addEventListener('submit', (e) => {
         e.preventDefault()
-        const ok = email.value.trim().toLowerCase() === '' && password.value === ''
+        const ok = email.value.trim().toLowerCase() === '@gmail.com' && password.value === ''
         if (ok) {
           // هدایت به پنل کاربری
           location.href = 'dashboard.html'
@@ -384,4 +384,5 @@
     </script>
   </body>
 </html>
+
 
